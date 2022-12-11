@@ -51,7 +51,17 @@ const onDrop = (event: DragEvent) => {
       @dragover.prevent
       @dragenter.prevent
     >
-      <div v-if="data?.amount" class="h-5/6 aspect-square bg-yellow-300"></div>
+      <div v-if="data?.amount" class="h-4/5 aspect-square relative">
+        <div class="h-5/6 aspect-square bg-yellow-300 absolute left-4"></div>
+        <div
+          v-if="data?.amount > 1"
+          class="h-5/6 aspect-square bg-yellow-400 absolute top-2 left-2"
+        ></div>
+        <div
+          v-if="data?.amount > 1"
+          class="h-5/6 aspect-square bg-yellow-500 absolute top-4"
+        ></div>
+      </div>
     </div>
     <div
       v-if="data?.amount"

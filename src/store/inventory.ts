@@ -4,7 +4,7 @@ import { reactive, ref, watch } from "vue";
 export const useInventoryStore = defineStore("inventory", () => {
   let inventory = ref<Array<Array<Object>>>([
     [{}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}],
+    [{ amount: 1, description: "single" }, {}, {}, {}, {}],
     [{}, { amount: 2, description: "foo bar" }, {}, {}, {}],
     [{}, {}, {}, {}, {}],
     [{}, {}, {}, { amount: 5, description: "what i've done" }, {}],
