@@ -1,13 +1,24 @@
 <script setup lang="ts">
 import InventoryGrid from "./components/InventoryGrid.vue";
-import { computed } from "@vue/reactivity";
-import { ref } from "vue";
-const dark = ref<boolean>(false);
-const colorscheme = computed(() => (dark.value ? "dark" : "light"));
+import { useUiStore } from "./store/ui";
+import { useInventoryStore } from "./store/inventory";
+
+const ui = useUiStore();
+
+const inventory = useInventoryStore();
+
+if (localStorage.getItem("inventoryState")) {
+  inventory.$state.inventory = JSON.parse(
+    localStorage.getItem("inventoryState") as string
+  );
+}
+if (localStorage.getItem("darktheme")) {
+  ui.$state.dark = JSON.parse(localStorage.getItem("darktheme") as string);
+}
 </script>
 
 <template>
-  <div :class="{ dark }" class="">
+  <div :class="{ dark: ui.dark }">
     <div
       class="w-full h-screen flex flex-col gap-5 p-5 bg-slate-100 dark:bg-neutral-900 transition-colors duration-200"
     >
@@ -48,9 +59,9 @@ const colorscheme = computed(() => (dark.value ? "dark" : "light"));
       >
         <div
           class="w-full h-full rounded-lg flex justify-center items-center text-2xl text-teal-900 dark:text-teal-200 font-semibold bg-slate-400 dark:bg-neutral-600 transition-colors duration-200"
-          @click="dark = !dark"
+          @click="ui.toggleColorscheme()"
         >
-          {{ colorscheme }}
+          {{ ui.dark ? "dark" : "light" }}
         </div>
       </div>
     </div>

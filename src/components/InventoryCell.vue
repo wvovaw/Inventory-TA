@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, ref } from "vue";
+import { ref } from "vue";
 
 const dragStarted = ref<boolean>(false);
 
