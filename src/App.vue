@@ -12,7 +12,7 @@ const colorscheme = computed(() => (dark.value ? "dark" : "light"));
     >
       <main class="h-[85%] flex flex-row gap-5">
         <div
-          class="w-1/3 p-3 overflow-hidden rounded-lg bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
+          class="w-1/3 p-3 overflow-hidden rounded-lg border-2 dark:border-zinc-700 border-zinc-400 bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
         >
           <div
             class="w-full h-[50%] flex justify-center items-center overflow-hidden rounded-lg"
@@ -37,11 +37,11 @@ const colorscheme = computed(() => (dark.value ? "dark" : "light"));
           </div>
         </div>
         <div
-          class="w-full h-full rounded-lg bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
+          class="w-full h-full rounded-lg border-2 dark:border-zinc-700 border-zinc-400 bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
         ></div>
       </main>
       <div
-        class="h-[15%] p-4 rounded-lg bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
+        class="h-[15%] p-4 rounded-lg border-2 dark:border-zinc-700 border-zinc-400 bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
       >
         <div
           class="w-full h-full rounded-lg flex justify-center items-center text-2xl text-teal-900 dark:text-teal-200 font-semibold bg-slate-400 dark:bg-neutral-600 transition-colors duration-200"
@@ -53,5 +53,3 @@ const colorscheme = computed(() => (dark.value ? "dark" : "light"));
     </div>
   </div>
 </template>
-
-<style scoped></style>
