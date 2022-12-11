@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import InventoryGrid from "./components/InventoryGrid.vue";
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
 const dark = ref<boolean>(false);
@@ -38,7 +39,9 @@ const colorscheme = computed(() => (dark.value ? "dark" : "light"));
         </div>
         <div
           class="w-full h-full rounded-lg border-2 dark:border-zinc-700 border-zinc-400 bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
-        ></div>
+        >
+          <InventoryGrid />
+        </div>
       </main>
       <div
         class="h-[15%] p-4 rounded-lg border-2 dark:border-zinc-700 border-zinc-400 bg-slate-300 dark:bg-neutral-800 transition-colors duration-200"
