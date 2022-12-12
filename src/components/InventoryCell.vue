@@ -13,7 +13,7 @@ const props = defineProps({
     require: true,
   },
 });
-const emits = defineEmits(["move"]);
+const emits = defineEmits(["move", "add", "openOptions"]);
 
 const onDragStart = (event: DragEvent) => {
   dragStarted.value = true;
@@ -35,6 +35,13 @@ const onDrop = (event: DragEvent) => {
   );
   emits("move", from, props.coordinate);
 };
+const openOptions = () => {
+  if (JSON.stringify(props.data) !== "{}")
+    emits("openOptions", props.coordinate);
+};
+const addItem = () => {
+  emits("add", props.coordinate);
+};
 </script>
 
 <template>
@@ -50,6 +57,8 @@ const onDrop = (event: DragEvent) => {
       @drop="onDrop($event)"
       @dragover.prevent
       @dragenter.prevent
+      @click.right.prevent="openOptions"
+      @click.left.prevent="addItem"
     >
       <div v-if="data?.amount" class="h-4/5 aspect-square relative">
         <div class="h-5/6 aspect-square bg-yellow-300 absolute left-4"></div>
